@@ -197,7 +197,7 @@ local function GetTarget()
             for _, Value in pairs(IgnoreModelDescendants) do
                 table.insert(InstancesToIgnore, Value)
             end
-            local ToPart = Plr.Character:FindFirstChild(getgenv().mikawexs.General.HitPart)
+            local ToPart = Plr.Character:FindFirstChild(getgenv().mikawexs.General.BodyPart)
             local WallCheckResult = WallCheck(Camera, ToPart, InstancesToIgnore)
 
             local TeamCheckResult = TeamCheck(Plr)
@@ -256,7 +256,7 @@ local function Main()
     if Target ~= nil then
         Cycle = RunService.RenderStepped:Connect(function()
             if Target ~= nil and Target.Character ~= nil and Target.Character:FindFirstChild('HumanoidRootPart') and Target.Character:FindFirstChild(getgenv().mikawexs.General.BodyPart) ~= nil then
-                local MidCycleWallCheckResult = MidCycleWallCheck(Target.Character[getgenv().mikawexs.General.HitPart])
+                local MidCycleWallCheckResult = MidCycleWallCheck(Target.Character[getgenv().mikawexs.General.BodyPart])
                 
                 if MidCycleWallCheckResult == true then
                     if Cycle then Cycle:Disconnect() end
